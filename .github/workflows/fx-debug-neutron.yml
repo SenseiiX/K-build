@@ -12,27 +12,27 @@ on:
         required: true
       KERNEL_TREE_BRANCH_1:
         description: 'Kernel Tree Branch 1'
-        default: 'test-sus'
+        default: 'exp-sus'
         required: false
         type: choice
         options:
           - munch-sus
-          - test-sus
+          - exp-sus
       KERNEL_TREE_2:
         description: 'Kernel Tree 2'
         default: 'https://github.com/SenseiiX/fusionX_sm8250'
         required: true
       KERNEL_TREE_BRANCH_2:
         description: 'Kernel Tree Branch 2'
-        default: 'test-next'
+        default: 'exp-nxt'
         required: false
         type: choice
         options:
           - munch-next
-          - test-next
+          - exp-nxt
       VERSION:
         description: 'Zip Version'
-        default: '1.xxx'
+        default: '1.x'
         required: false
       ANYKERNEL_URL:
         description: 'AnyKernel Url (leave blank if you dont want AnyKernel)'
