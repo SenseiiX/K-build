@@ -64,7 +64,7 @@ jobs:
 
       - name: Download & Extract Clang
         run: |
-          wget https://github.com/ZyCromerZ/Clang/releases/download/21.0.0git-20250322-release/Clang-21.0.0git-20250324.tar.gz -O clang.tar.gz
+          wget https://github.com/ZyCromerZ/Clang/releases/download/21.0.0git-20250322-release/Clang-21.0.0git-20250322.tar.gz -O clang.tar.gz
           mkdir clang
           tar -xzvf clang.tar.gz -C clang
           
