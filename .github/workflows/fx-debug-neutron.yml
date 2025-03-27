@@ -18,6 +18,7 @@ on:
         options:
           - munch-sus
           - exp-sus
+          - dev-base
       KERNEL_TREE_2:
         description: 'Kernel Tree 2'
         default: 'https://github.com/SenseiiX/fusionX_sm8250'
@@ -30,6 +31,7 @@ on:
         options:
           - munch-next
           - exp-nxt
+          - dev-base
       VERSION:
         description: 'Zip Version'
         default: '1.x'
