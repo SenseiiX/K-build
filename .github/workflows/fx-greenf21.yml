@@ -62,9 +62,9 @@ jobs:
           sudo apt update
           sudo apt install -y flex bison libncurses-dev libssl-dev bc cpio kmod pkg-config
 
-      - name: Download & Extract Greenforce Clang (23032025)
+      - name: Download & Extract Clang
         run: |
-          wget https://github.com/greenforce-project/greenforce_clang/releases/download/16032025/greenforce-clang-21.0.0git-16032025.tar.gz -O clang.tar.gz
+          wget https://github.com/greenforce-project/greenforce_clang/releases/download/23032025/greenforce-clang-21.0.0git-23032025.tar.gz -O clang.tar.gz
           mkdir clang
           tar -xzvf clang.tar.gz -C clang
           
@@ -92,6 +92,15 @@ jobs:
         run: |
           cd kernel_tree
           bash nextpatch.sh
+          
+      - name: greenforce opt
+        if: matrix.kernel
+        run: |
+          cd kernel_tree
+          sed -i -e '/KBUILD_CFLAGS   += -mllvm -regalloc-enable-advisor=release/d' Makefile
+          sed -i -e '/KBUILD_LDFLAGS  += -mllvm -regalloc-enable-advisor=release/d' Makefile
+          sed -i -e '/KBUILD_LDFLAGS  += -mllvm -enable-ml-inliner=release/d' Makefile
+          sed -i -e '/KBUILD_CFLAGS 	+= -mllvm -enable-machine-outliner/d' Makefile    
 
       - name: Apply Modifications (if modified build)
         if: matrix.type == 'modified'
